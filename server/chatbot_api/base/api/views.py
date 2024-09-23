@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import BotSerializer,MessageSerializer,UuidSerializer
 from django.contrib.auth.models import User
+from django.conf import settings
 
 import os
 import time
@@ -11,8 +12,8 @@ import time
 import google.generativeai as genai
 
 
-# genai.configure(api_key=os.getenv('API_KEY'))
-genai.configure(api_key="AIzaSyC0FGAKhVFjr8Is-PEbXqQSvFcaMhaUUv4")
+
+genai.configure(api_key = os.getenv.API_KEY)
 
 def upload_to_gemini(path, mime_type=None):
   
@@ -46,7 +47,7 @@ def getins(owner_name,company_name,contact_number,excel_file):
     }
 
     model = genai.GenerativeModel(
-    model_name="gemini-1.5-pro",
+    model_name="gemini-1.5-flash",
     generation_config=generation_config,
     # safety_settings = Adjust safety settings
     # See https://ai.google.dev/gemini-api/docs/safety-settings
